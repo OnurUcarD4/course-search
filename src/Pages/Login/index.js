@@ -1,4 +1,4 @@
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
@@ -8,6 +8,8 @@ import { setUserToken } from "../../redux/slices/userSlice";
 const Login = () => {
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPasword] = useState("");
+  const [user, setUser] = useState({});
+
   const dispatch = useDispatch();
   const selector = useSelector((state) => state.userSlice);
   const login = async (e) => {
@@ -29,7 +31,6 @@ const Login = () => {
         theme: "light",
       });
       dispatch(setUserToken(user.user.accessToken));
-      console.log(selector.userToken);
     } catch (error) {
       toast.error("Wrong e-mail or password.", {
         position: "top-right",
@@ -45,8 +46,8 @@ const Login = () => {
   };
 
   return (
-    <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-lg">
+    <div className="mx-auto  max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-lg ">
         <h1 className="text-center text-2xl font-bold text-indigo-600 sm:text-3xl">
           Course Search System v1.0
         </h1>
@@ -62,7 +63,7 @@ const Login = () => {
           <p className="text-lg font-medium">Sign in to your account</p>
 
           <div className="text-left">
-            <label for="email" className="text-sm font-medium">
+            <label htmlFor="email" className="text-sm font-medium">
               Email
             </label>
 
@@ -83,9 +84,9 @@ const Login = () => {
                   stroke="currentColor"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
                   />
                 </svg>
@@ -94,7 +95,7 @@ const Login = () => {
           </div>
 
           <div>
-            <label for="password" className="text-sm font-medium">
+            <label htmlFor="password" className="text-sm font-medium">
               Password
             </label>
 
@@ -115,15 +116,15 @@ const Login = () => {
                   stroke="currentColor"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
                   />
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
                   />
                 </svg>
