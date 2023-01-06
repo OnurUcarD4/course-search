@@ -5,3 +5,7 @@ Projeyi VSCode'a atıp
 yazarak projeyi kurunuz. Daha sonra
 ### npm start
 yazarak projeyi başlatabilirsiniz.
+
+Kullanıcı bilgileri;
+erokan@akdeniz.edu.tr
+erokancanbazoglu
