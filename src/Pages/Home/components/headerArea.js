@@ -22,7 +22,7 @@ const HeaderArea = () => {
               alt="avatar"
             />
           </div>
-          <div className="font-semibold flex flex-col text-xs md:text-base ml-4 mt-1">
+          <div className="font-semibold flex flex-col w-full md:w-40 text-xs md:text-base ml-4 mt-1">
             <span>Erokan Canbazoğlu</span>
             <span className="text-xs font-thin">Director at PHD Tech.</span>
             <button

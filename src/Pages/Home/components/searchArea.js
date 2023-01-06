@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Card from "./card";
 import { Select } from "antd";
-import { useDispatch } from "react-redux";
-import { setCopyData, setData } from "../../../redux/slices/filterSlice";
 
 const SearchArea = () => {
   const dummyData = [
